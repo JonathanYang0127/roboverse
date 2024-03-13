@@ -5,7 +5,7 @@ from perspectives import perspectives
 from roboverse.policies import policies
 
 
-camera_params = perspectives[4]
+camera_params = perspectives[1]
 env = roboverse.make('Widow250PickPlace-v0', gui=False, 
         observation_img_dim=128, **camera_params)
 env.reset()

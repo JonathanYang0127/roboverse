@@ -67,8 +67,10 @@ if __name__ == "__main__":
     #For now, have 1 thread per perspective
     assert args.num_parallel_threads == len(perspectives)
     subprocesses = []
+    command.append(' ')
     for i in range(args.num_parallel_threads):
-        command.append('-p {}'.format(i % len(perspectives)))
+        command[-1] = '-p {}'.format(i % len(perspectives))
+        print(' '.join(command))
         subprocesses.append(subprocess.Popen(command))
         time.sleep(1)
 

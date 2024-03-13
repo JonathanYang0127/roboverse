@@ -21,7 +21,7 @@ perspectives = [
         'camera_yaw': 145,
 
         'object_names': (PICK_PLACE_TRAIN_OBJECTS[2],),
-        'object_scales': (0.7,),
+        'object_scales': (0.5,),
         'target_object': PICK_PLACE_TRAIN_OBJECTS[2],
     },
     {
