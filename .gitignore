@@ -1,5 +1,7 @@
 # Custom
 
+roboverse/assets/bullet-objects
+
 .idea/
 data/
 scripts/scratch.py
