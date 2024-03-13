@@ -163,8 +163,6 @@ ENVIRONMENT_SPECS = (
                    'object_position_high': (.59, .27, -.30),
 
                    'container_name': 'bowl_small',
-
-
                    }
     },
     {
