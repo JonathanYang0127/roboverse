@@ -58,8 +58,8 @@ if __name__ == "__main__":
                '-e{}'.format(args.env),
                '-n {}'.format(num_trajectories_per_thread),
                '-t {}'.format(args.num_timesteps),
-               '-o{}'.format(args.target_object),
-               '-d{}'.format(save_directory),
+               '-o {}'.format(args.target_object),
+               '-d {}'.format(save_directory),
                ]
 
     if args.save_all:

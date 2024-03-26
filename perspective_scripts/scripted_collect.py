@@ -50,7 +50,6 @@ def collect_one_traj(env, policy, num_timesteps, noise,
         env_infos=[],
     )
     for j in range(num_timesteps):
-
         action, agent_info = policy.get_action()
 
         # In case we need to pad actions by 1 for easier realNVP modelling
@@ -152,3 +151,4 @@ if __name__ == "__main__":
     args = parser.parse_args()
 
     main(args, perspectives[args.perspective_idx])
+    

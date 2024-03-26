@@ -192,7 +192,6 @@ class Widow250Env(gym.Env, Serializable):
         return self.get_observation()
 
     def step(self, action):
-
         # TODO Clean this up
         if np.isnan(np.sum(action)):
             print('action', action)
@@ -203,7 +202,7 @@ class Widow250Env(gym.Env, Serializable):
         xyz_action = action[:3]  # ee position actions
         abc_action = action[3:6]  # ee orientation actions
         gripper_action = action[6]
-        neutral_action = action[7]
+        neutral_action = 0 if len(action) == 7 else action[7]
 
         ee_pos, ee_quat = bullet.get_link_state(
             self.robot_id, self.end_effector_index)

@@ -11,7 +11,7 @@ from roboverse.utils import get_timestamp
 def get_data_save_directory(args):
     data_save_directory = args.data_save_directory
 
-    data_save_directory += '_{}'.format(args.env)
+    data_save_directory += '/{}'.format(args.env)
 
     if args.num_trajectories > 1000:
         data_save_directory += '_{}K'.format(int(args.num_trajectories/1000))
@@ -58,7 +58,6 @@ if __name__ == "__main__":
                '-e{}'.format(args.env),
                '-n {}'.format(num_trajectories_per_thread),
                '-t {}'.format(args.num_timesteps),
-               '-d{}'.format(save_directory),
                ]
 
     if args.save_all:
@@ -67,9 +66,11 @@ if __name__ == "__main__":
     #For now, have 1 thread per perspective
     assert args.num_parallel_threads == len(perspectives)
     subprocesses = []
-    command.append(' ')
+    command.extend([' ', ' '])
     for i in range(args.num_parallel_threads):
-        command[-1] = '-p {}'.format(i % len(perspectives))
+        perspective_idx = int(i % len(perspectives))
+        command[-2] = '-d{}'.format(save_directory+f'_{perspective_idx}') 
+        command[-1] = '-p {}'.format(perspective_idx)
         print(' '.join(command))
         subprocesses.append(subprocess.Popen(command))
         time.sleep(1)
